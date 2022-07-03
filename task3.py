@@ -5,3 +5,9 @@ user1 = input()
 print('Hello ' + str(user1))
 print(f'Hello {user1}')
 print('Hello {}'.format(user1))
+#3.3 Объявить переменную строкового типа со значением ‘Hi, I am a string variable’, 
+#объявить переменную с целочисленным значением 100. Организовать консольный вывод конкатенации строковой и целочисленной переменных 
+#с результатом: ‘Hi, I am a string variable100’
+string = 'Hi, I am a string variable'
+number = 100
+print(string +'{}'.format(number))
