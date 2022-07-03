@@ -34,3 +34,7 @@ print([x+1 for x in a])
 string = 'Python is the most popular programming language'
 print(string.count('p'))
 print(string.lower().count('p'))
+#3.11 Есть список а = [0, 2, 3, 4] и список b = [2, 2, 5], вывести только те элементы из первого списка, которые отсутствуют во втором.
+firstLst = [0, 2, 3, 4]
+secondLst = [2, 2, 5]
+print(set(firstLst) - set(secondLst))
