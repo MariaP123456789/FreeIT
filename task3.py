@@ -30,3 +30,7 @@ a = [1, 1, 2, 3, 5, 8, 10, 10]
 print(set(a))
 #3.9 Выведите список, состоящий из элементов списка “а”, увеличенных на 1
 print([x+1 for x in a])
+#3.10 Организовать вывод количества символов ‘p’ в строке “Python is the most popular programming language”
+string = 'Python is the most popular programming language'
+print(string.count('p'))
+print(string.lower().count('p'))
