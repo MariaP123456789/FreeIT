@@ -11,3 +11,6 @@ print('Hello {}'.format(user1))
 string = 'Hi, I am a string variable'
 number = 100
 print(string +'{}'.format(number))
+#3.4 Организовать консольный вывод факториала от 100
+import math
+print(math.factorial(100))
