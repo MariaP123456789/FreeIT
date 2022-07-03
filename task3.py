@@ -25,3 +25,6 @@ print(lst)
 string = 'sounds/lofi/chillstep.wav'
 print(string.replace('sounds', 'midi'))
 print(string.split('.')[1])
+#3.8 Есть список a = [1, 1, 2, 3, 5, 8, 10, 10], выведите только уникальные элементы
+a = [1, 1, 2, 3, 5, 8, 10, 10]
+print(set(a))
