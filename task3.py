@@ -21,3 +21,7 @@ print(tup)
 #3.6. Создать список, представляющий из себя квадрат значений кортежа tup ([0,4,16...])
 lst = [x**2 for x in tup]
 print(lst)
+#3.7 В строковой переменной ‘sounds/lofi/chillstep.wav’ выполнить замену sounds на midi, выполнить вывод расширения имени файла.
+string = 'sounds/lofi/chillstep.wav'
+print(string.replace('sounds', 'midi'))
+print(string.split('.')[1])
