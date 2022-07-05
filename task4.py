@@ -28,3 +28,9 @@ print(d3)
 d3 = d1.copy()
 d3.update(d2)
 print(d3)
+
+#4.3 Имеется словарь d1 = {‘key1’: 1, ‘key2’: 2}, в нем необходимо сменить ключи и значения местами, 
+#заменив ‘key’ на ‘value’ ({1: ‘value1’, 2: ‘value2’})
+d1 = {'key1': 1, 'key2': 2}
+print({value:key for key, value in d1.items()})
+	
