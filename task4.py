@@ -1,3 +1,6 @@
+import os
+
+
 #4.1 Имеется список a = list(range(0, 11)). На основании списка ‘a’ cгенерировать список, 
 #каждым элементом которого является словарь, ключем которого является элемент списка ‘a’, 
 #а значением квадрат ключа. ([{0:0}, {1:1}, {2:4}, etc…])
@@ -34,3 +37,7 @@ print(d3)
 d1 = {'key1': 1, 'key2': 2}
 print({value:key for key, value in d1.items()})
 	
+#4.4 вывести список файлов из текущей директории.
+currentDirectory = os.getcwd()
+filesList = os.listdir(path = currentDirectory)
+print(filesList)
