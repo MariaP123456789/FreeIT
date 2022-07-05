@@ -1,3 +1,4 @@
+from datetime import datetime
 import os
 
 
@@ -41,3 +42,8 @@ print({value:key for key, value in d1.items()})
 currentDirectory = os.getcwd()
 filesList = os.listdir(path = currentDirectory)
 print(filesList)
+
+#4.5 Организовать вывод текущего времени и даты в формате “hh-mm MM-dd-YYYY”
+currentDate = datetime.today()
+strDate = currentDate.strftime('%H-%M %m-%d-%Y')
+print(strDate)
