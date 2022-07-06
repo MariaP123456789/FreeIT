@@ -47,3 +47,25 @@ print(filesList)
 currentDate = datetime.today()
 strDate = currentDate.strftime('%H-%M %m-%d-%Y')
 print(strDate)
+
+#4.6 Организовать последовательный вывод чисел от 0 до 10 с запросом нажатия клавиши enter пользователем для каждого последующего элемента.
+for x in range(10):
+	print(x)
+	input() #???
+	#keyboard.wait('enter')
+
+#4.7* Очистить строку string = 'LthHJKiHs GisH nKSiDJceFJ KASsolDIUKuJHtDHiSSonAK'  от заглавных букв. Вывод организовать в новой строке. Пробелы так же должны содержаться в результате.
+string = 'LthHJKiHs GisH nKSiDJceFJ KASsolDIUKuJHtDHiSSonAK'
+string2 = ''
+for x in string:
+	if not x.isupper():
+		string2 = string2 + x
+print(string2)
+
+#4.8 Из списка с цветами радуги организовать консольный вывод строки вида: “
+#Красный – 1 цвет радуги”. Список цветов радуги colors = [“красный”, “оранжевый”, “желтый”, “зеленый”, “голубой”, “синий”, “фиолетовый”]. 
+#Название цвета выводить с заглавной буквы.
+colors = ['красный', 'оранжевый', 'желтый', 'зеленый', 'голубой', 'синий', 'фиолетовый']
+for element in colors:
+	num = colors.index(element) + 1
+	print(element.capitalize() + ' - ' + str(num) + ' цвет радуги')
