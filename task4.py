@@ -1,4 +1,5 @@
 from datetime import datetime
+import time
 import os
 
 
@@ -69,3 +70,17 @@ colors = ['красный', 'оранжевый', 'желтый', 'зелены�
 for element in colors:
 	num = colors.index(element) + 1
 	print(element.capitalize() + ' - ' + str(num) + ' цвет радуги')
+
+#4.9 Организовать цикл while, который будет выполнять вывод чисел от 0 до бесконечности в течении 10 секунд. 
+x = 0;
+currentTime = time.time()
+while time.time() - currentTime < 10:
+	print(x)
+	x+=1
+
+#4.10 При помощи цикла for организовать консольный вывод вида:
+for x in range(1,11):
+	string = ''
+	for y in range(x):
+		string = string + str(x)
+	print(string)
