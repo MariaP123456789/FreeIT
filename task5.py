@@ -1,8 +1,9 @@
 #работает неправильно: 3 + 3 * 3 будет выполняться в порядке обхода массива
-
+#и на кнопки нужно мышкой нажимать
 
 #для графического интерфейса
 import tkinter
+
 
 #создание окна - Tk()
 window = tkinter.Tk()
@@ -19,12 +20,6 @@ label.grid(row=0, column=0, columnspan=3, sticky="nsew")
 str_number = ''
 #тут массив
 stack = []
-
-#создание кнопок
-create_buttons(window)
-
-#отображение окна
-window.mainloop()
 
 
 ### дальше функции
@@ -89,7 +84,6 @@ def calculate():
 	
 	for i in stack:
 		
-		#это пока вместо исключений - если последний или первый символ не являются числом, тогда 0
 		if  not '0' <= i <= '9':
 			if stack.index(i) == len_stack-1:
 				return 0
@@ -133,7 +127,10 @@ def calculate_inside2(current_operator, el1, el2, num):
 	if current_operator == '+':
 		num = num + el2
 	elif current_operator == '/':
-		num = num / el2
+		try:
+			num = num / el2
+		except ZeroDivisionError:
+			num = 0
 	elif current_operator == '*':
 		num = num * el2
 	elif current_operator == '-':
@@ -142,3 +139,10 @@ def calculate_inside2(current_operator, el1, el2, num):
 	#простите
 	return(round(num, 4))
 #функция вычисления выражений ---
+
+
+#создание кнопок
+create_buttons(window)
+
+#отображение окна
+window.mainloop()
