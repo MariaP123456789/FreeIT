@@ -1,3 +1,6 @@
+#работает неправильно: 3 + 3 * 3 будет выполняться в порядке обхода массива
+
+
 #для графического интерфейса
 import tkinter
 
@@ -8,6 +11,7 @@ window.title('Simple calculator')
 #размеры окна
 window.geometry('430x340')
 
+#надпись сверху
 label = tkinter.Label(window, text='0', font=("Arial Bold", 28))
 label.grid(row=0, column=0, columnspan=3, sticky="nsew")
 
@@ -16,7 +20,17 @@ str_number = ''
 #тут массив
 stack = []
 
-#функция для вывода кнопок
+#создание кнопок
+create_buttons(window)
+
+#отображение окна
+window.mainloop()
+
+
+### дальше функции
+
+
+#процедура для вывода кнопок +++
 def create_buttons(window):
 	
 	#кнопочка сброса
@@ -36,7 +50,10 @@ def create_buttons(window):
 			# добавление кнопки - окно, текст, шрифт, бэграунд, форграунд (цвет текста), команда (писать без скобок) или присваиваем переменной текст1 передаваемый текст, и отправляем в функцию
 			btn = tkinter.Button(window, text = button_text, font=("Arial Bold", 25), bg="red", fg="white", width=5, command=lambda text1=button_text: button_click(text1))
 			btn.grid(column=button_row.index(button_text), row = buttons.index(button_row)+1)
+#процедура для вывода кнопок ---		
 		
+		
+#процедура обработки нажатия кнопок +++		
 def button_click(button_text):
 	
 	#это глобальные переменные добавила в этот контекст
@@ -58,9 +75,10 @@ def button_click(button_text):
 		str_number = str_number + button_text
 		label.configure(text = str_number)
 		stack.append(button_text)
-		print(stack)
+#процедура обработки нажатия кнопок ---
+
 		
-#тут вычисляем
+#функция преобразования массива и вычисления +++
 def calculate():
 	global stack
 	
@@ -86,7 +104,6 @@ def calculate():
 			str_num = ''
 		
 	stack2.append(float(str_num))
-	print(stack2)
 	
 	num = 0.0
 	current_operator = ''
@@ -98,19 +115,20 @@ def calculate():
 			el1 = stack2[stack2.index(el)-1]			
 			el2 = stack2[stack2.index(el)+1]
 			
-			print('el, el1, el2, num', el, el1, el2, num)
 			num = calculate_inside2(el, el1, el2, num)	
 			
-	print(num)
 	return num
-	
+#функция преобразования массива и вычисления ---
+
+
+#функция вычисления выражений +++	
 def calculate_inside2(current_operator, el1, el2, num):
 					
-	print('INSIDE el, el1, el2, num', current_operator, el1, el2, num)
-					
 	if num == 0:
-		#операции над 2 числами вокруг будут
 		num = el1;
+		
+	#if current_operator == '/' and el2 == 0:
+		#exept
 
 	if current_operator == '+':
 		num = num + el2
@@ -120,16 +138,7 @@ def calculate_inside2(current_operator, el1, el2, num):
 		num = num * el2
 	elif current_operator == '-':
 		num = num - el2
-	
-	print('INSIDE AFTER el, el1, el2, num', current_operator, el1, el2, num)	
-	
+		
 	#простите
 	return(round(num, 4))
-
-	
-create_buttons(window)
-
-#отображение окна
-window.mainloop()
-
-
+#функция вычисления выражений ---
