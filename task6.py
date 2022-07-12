@@ -2,6 +2,7 @@ import math
 
 sqrt_2 = math.sqrt(2)
 
+
 #6.1 Написать функцию для записи строки в текстовый файл. В качестве аргументов принимает расположение текстового файла, 
 #модификатор доступа, строку для записи. Использовать менеджер контекста. Ничего не возвращает
 def my_func(path, text = ''):
@@ -10,6 +11,7 @@ def my_func(path, text = ''):
 		print('Text in the file:', text)
 		
 my_func('123.txt', 'Have a good day ))) ')
+
 
 #6.2 Написать функцию season, принимающую 1 аргумент — номер месяца (от 1 до 12), и
 # возвращающую время года, которому этот месяц принадлежит (зима, весна, лето или осень)
@@ -21,7 +23,7 @@ times_of_the_year = func(Winter = [1,2,12], Spring = list(range(3,6)), Summer = 
 
 try:
 	num = int(input('Input a number from 1 to 12:'))
-except TypeError:
+except ValueError:
 	print("I told 'Input a number from 1 to 12'")
 
 def func_2(times_of_the_year, num):
@@ -30,6 +32,7 @@ def func_2(times_of_the_year, num):
 			return year_time
 
 print(func_2(times_of_the_year, num))
+
 
 #6.3 Написать функцию square, принимающую 1 аргумент — сторону квадрата, и возвращающую 3 значения (кортеж значений): 
 #периметр квадрата, площадь квадрата и диагональ квадрата.
@@ -42,3 +45,17 @@ def square(side):
 print(square(4))
 	
 	
+#6.4 Пользователь делает вклад в размере a рублей сроком на years лет под 10% годовых 
+#(каждый год размер его вклада увеличивается на 10%. Эти деньги прибавляются к сумме вклада, 
+#и на них в следующем году тоже будут проценты).
+#Написать функцию bank, принимающая аргументы a и years, и возвращающую сумму, которая будет на счету пользователя.
+
+#переписать
+def bank(a, years):
+	for i in range(years):
+		a = a * 1.1;
+	return a
+	
+a = int(input())
+years = int(input())
+print(bank(a, years))
