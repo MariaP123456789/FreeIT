@@ -1,4 +1,5 @@
 import math
+import time
 
 sqrt_2 = math.sqrt(2)
 
@@ -50,12 +51,30 @@ print(square(4))
 #и на них в следующем году тоже будут проценты).
 #Написать функцию bank, принимающая аргументы a и years, и возвращающую сумму, которая будет на счету пользователя.
 
-#переписать
 def bank(a, years):
 	for i in range(years):
 		a = a * 1.1;
 	return a
 	
-a = int(input())
-years = int(input())
+a = int(input('Input sum:'))
+years = int(input('Input amount of years:'))
 print(bank(a, years))
+
+
+#6.5 Написать декоратор, который будет выводить время выполнения декорируемой функции в консоль
+def outer(outer_func):
+	def inner(*args, **kwargs):
+		current_time = time.time()
+		result = outer_func(*args, **kwargs)
+		return print('outer_2 time: ' + str(time.time() - current_time))
+	return inner
+	
+@outer
+def outer_2(x):
+	current_time = time.time()
+	#просто что-то выполняется 3 секунды
+	while time.time() - current_time < 3:
+		x+=1
+	
+outer_2(0)
+	
