@@ -1,7 +1,8 @@
 import math
 import time
 
-sqrt_2 = math.sqrt(2)
+
+SQRT_2 = math.sqrt(2)
 
 
 #6.1 Написать функцию для записи строки в текстовый файл. В качестве аргументов принимает расположение текстового файла, 
@@ -39,8 +40,8 @@ print(func_2(times_of_the_year, num))
 #периметр квадрата, площадь квадрата и диагональ квадрата.
 
 def square(side):
-	global sqrt_2
-	a = [side*4, side*side, side * sqrt_2]
+	global SQRT_2
+	a = [side*4, side*side, side * SQRT_2]
 	return a
 
 print(square(4))
