@@ -33,7 +33,7 @@ print(func_2(num))
 #периметр квадрата, площадь квадрата и диагональ квадрата.
 
 def square(side):
-	return (side*4, side*side, side * math.sqrt(2))
+	return side*4, side*side, side * math.sqrt(2)
 
 print(square(4))
 	
