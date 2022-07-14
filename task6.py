@@ -2,9 +2,6 @@ import math
 import time
 
 
-SQRT_2 = math.sqrt(2)
-
-
 #6.1 Написать функцию для записи строки в текстовый файл. В качестве аргументов принимает расположение текстового файла, 
 #модификатор доступа, строку для записи. Использовать менеджер контекста. Ничего не возвращает
 def my_func(path, text = ''):
@@ -18,31 +15,25 @@ my_func('123.txt', 'Have a good day ))) ')
 #6.2 Написать функцию season, принимающую 1 аргумент — номер месяца (от 1 до 12), и
 # возвращающую время года, которому этот месяц принадлежит (зима, весна, лето или осень)
 
-#для закрепления
-def func(**kwargs):
-	return kwargs	
-times_of_the_year = func(Winter = [1,2,12], Spring = list(range(3,6)), Summer = list(range(6,9)), Autumn = list(range(9,12)))
-
 try:
 	num = int(input('Input a number from 1 to 12:'))
 except ValueError:
 	print("I told 'Input a number from 1 to 12'")
 
-def func_2(times_of_the_year, num):
+def func_2(num):
+	times_of_the_year = {'Winter' : [1,2,12], 'Spring' : list(range(3,6)), 'Summer' : list(range(6,9)), 'Autumn' : list(range(9,12))}
 	for year_time in times_of_the_year:
 		if num in times_of_the_year[year_time]:
 			return year_time
 
-print(func_2(times_of_the_year, num))
+print(func_2(num))
 
 
 #6.3 Написать функцию square, принимающую 1 аргумент — сторону квадрата, и возвращающую 3 значения (кортеж значений): 
 #периметр квадрата, площадь квадрата и диагональ квадрата.
 
 def square(side):
-	global SQRT_2
-	a = [side*4, side*side, side * SQRT_2]
-	return a
+	return (side*4, side*side, side * math.sqrt(2))
 
 print(square(4))
 	
@@ -67,15 +58,13 @@ def outer(outer_func):
 	def inner(*args, **kwargs):
 		current_time = time.time()
 		result = outer_func(*args, **kwargs)
-		return print('outer_2 time: ' + str(time.time() - current_time))
+		print('outer_2 time: ' + str(time.time() - current_time))
+		return result
 	return inner
 	
 @outer
-def outer_2(x):
-	current_time = time.time()
-	#просто что-то выполняется 3 секунды
-	while time.time() - current_time < 3:
-		x+=1
+def outer_2():
+	time.sleep(3)
 	
-outer_2(0)
+outer_2()
 	
