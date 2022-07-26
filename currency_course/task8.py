@@ -10,7 +10,6 @@ def get_courses(date):
 	
 def get_currencies():
 	response = requests.get("https://openexchangerates.org/api/currencies.json?app_id=caba407f4e844254b6b5b6abc2046365")
-	#print(response.json())
 	return response.json()
 	
 	
@@ -22,7 +21,6 @@ with open('currencies.txt', 'w', encoding='utf-8') as currency_file:
 
 # получение курсов валют
 today = datetime.now()
-
 for i in range(30):	
 	strftime = datetime.strftime(today, '%Y-%m-%d')
 	with open('courses' + strftime + '.txt', 'w') as course_file:
