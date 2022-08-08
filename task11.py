@@ -25,7 +25,7 @@ def get_json(data_list, url):
 				url = url.replace('DATA', data_el) 		
 				response_json = requests.get(url).json()
 				lock.acquire()
-				n = {data_el:response_json}
+				n = {data_el:response_json['rates']}
 				results.append(n)
 				lock.release()
 		else:
